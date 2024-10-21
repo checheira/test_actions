@@ -1,12 +1,12 @@
-name: New workflow for github actions
-# cuando ejecutar
-on: 
+name: Run commands on different operating systems
+on:
   push:
-    branches: [ "main" ]
+    branches: [ master ]
+
 jobs:
   test_job:
-    runs-on: ubuntu-latest # utilizar una versión concreta
+    runs-on: ubuntu-latest
 
-    steps:
+    steps: 
       - name: "Primera prueba"
-        run: echo "Primera prueba"
+        run: echo "Primera prueba"    
