@@ -1,0 +1,21 @@
+name: New workflow for github actions
+
+on: # cuando ejecutar
+  workflow_dispatch:
+    inputs:
+      page:
+        description: 'Platform or module (Use "_" as space i.e. Landing_Zone ):'
+        default: "Landing_Zone"
+        required: true
+      version:
+        description: 'Define doc new version (i.e 2.1):'
+        required: true
+      release:
+        description: '(Optional) URL of the new release:'
+jobs:
+  test_job:
+    runs-on: ubuntu-latest # utilizar una versión concreta
+
+    steps:
+      - name: "Primera prueba"
+        run: echo "Primera prueba"
