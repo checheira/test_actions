@@ -12,10 +12,10 @@ jobs:
         run: echo "Primera prueba"    
       - uses: actions/checkout@v4 # Obtener el ultimo commit de mi repositorio
         with:
-          repository: checheira/prueba # Cambiar repositorio por el que queremos
-          #ref: feature/update_module_ref
-          token: ${{ secrets.PAT_GHE_IRA }}
-          #path: ./.github/actions/iac-github_actions          
+          #repository: checheira/prueba # Cambiar repositorio por el que queremos
+          #token: ${{ secrets.PAT_GHE_IRA }}
+              ##ref: feature/update_module_ref
+              ##path: ./.github/actions/iac-github_actions          
           fetch-depth: 0
       - name: "probamos a sacar variable secreta"
         shell: bash
@@ -32,5 +32,9 @@ jobs:
       - name: just know the path #Executing Python Script
         shell: bash
         run: | 
+          echo "pwd"
           pwd
+          echo "ls"
           ls
+      - name: Run python script
+        run: python scripts/python_file_example.py
