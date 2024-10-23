@@ -18,4 +18,4 @@ jobs:
           sec_value: ${{ secrets.SECRET_VALUE }}
         run: |
           echo "$nosec_value"
-          echo "$NO_SEC_VARIABLE
+          echo "$NO_SEC_VARIABLE"
