@@ -10,4 +10,4 @@ print("La fecha de hoy es:", hoy)
 #print(os.environ.get("nosec_value", "unknown"))
 #print(os.getenv("sec_value", "unknown"))
 
-print(os.getenv('GITHUB_ENV'))
+print(os.getenv('nosec_value'))

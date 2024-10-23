@@ -37,4 +37,6 @@ jobs:
           echo "ls"
           ls
       - name: Run python script
+        env:
+          nosec_value: ${{ vars.NO_SEC_VARIABLE }}  
         run: python scripts/python_file_example.py
