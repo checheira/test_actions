@@ -7,7 +7,8 @@ hoy = date.today()
 # Imprimir la fecha de hoy
 print("La fecha de hoy es:", hoy)
 
-#print(os.environ.get("nosec_value", "unknown"))
-#print(os.getenv("sec_value", "unknown"))
-
+# Imprimir la variable normal
 print(os.getenv('nosec_value'))
+
+# Imprimir la variable secreta
+print(os.environ.get("sec_value"))
