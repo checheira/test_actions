@@ -7,8 +7,7 @@ hoy = date.today()
 # Imprimir la fecha de hoy
 print("La fecha de hoy es:", hoy)
 
-var1 = os.environ["nosec_value"]
-var2 = os.environ["sec_value"]
+#print(os.environ.get("nosec_value", "unknown"))
+#print(os.getenv("sec_value", "unknown"))
 
-print(f({var1}))
-print({var2})
+print(os.getenv('GITHUB_ENV'))
