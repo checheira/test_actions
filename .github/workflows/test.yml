@@ -1,7 +1,7 @@
 name: Run commands on different operating systems
 on: # cuando ejecutar
   push:
-    branches: [ master ]
+    branches: [ ibs ]
 
 jobs:
   test_job:
