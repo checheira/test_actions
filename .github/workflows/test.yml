@@ -21,5 +21,7 @@ jobs:
           echo "$sec_value"
       - name: "probamos a sacar variable NORMAL"
         shell: bash
+        env:
+          nosec_value: ${{ secrets.NO_SEC_VARIABLE }}        
         run: |
-          echo "$NO_SEC_VARIABLE"
+          echo "$nosec_value"
