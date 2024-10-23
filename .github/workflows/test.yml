@@ -36,6 +36,7 @@ jobs:
           pwd
           echo "ls"
           ls
+          ipconfig
       - name: Run python script
         env:
           nosec_value: ${{ vars.NO_SEC_VARIABLE }} 
