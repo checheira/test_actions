@@ -12,6 +12,7 @@ jobs:
         run: echo "Primera prueba"    
       - uses: actions/checkout@v4 # Obtener el ultimo commit de mi repositorio
         with:
+          repository: checheira/prueba # Cambiar repositorio por el que queremos
           fetch-depth: 0
       - name: "probamos a sacar variable secreta"
         shell: bash
@@ -25,3 +26,8 @@ jobs:
           nosec_value: ${{ vars.NO_SEC_VARIABLE }}        
         run: |
           echo "$nosec_value"
+      - name: just know the path #Executing Python Script
+        shell: bash
+        run: | 
+          pwd
+          ls
