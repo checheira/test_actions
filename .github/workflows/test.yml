@@ -10,7 +10,12 @@ jobs:
     steps: 
       - name: "Primera prueba"
         run: echo "Primera prueba"    
-      - uses: actions/checkout@v4 # Obtener el ultimo commit de un repositorio
+      - uses: actions/checkout@v4 # Obtener el ultimo commit de mi repositorio
         with:
           fetch-depth: 0
-          
+      - shell: bash
+        env:
+          sec_value: ${{ secrets.SECRET_VALUE }}
+        run: |
+          echo "$nosec_value"
+          echo "$NO_SEC_VARIABLE
