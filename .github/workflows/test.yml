@@ -10,3 +10,7 @@ jobs:
     steps: 
       - name: "Primera prueba"
         run: echo "Primera prueba"    
+      - uses: actions/checkout@v4 # Obtener el ultimo commit de un repositorio
+        with:
+          fetch-depth: 0
+          
