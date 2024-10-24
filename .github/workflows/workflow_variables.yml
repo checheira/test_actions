@@ -1,7 +1,8 @@
 name: Github actions con variables
 on: # cuando ejecutar
 
-
+  push:
+    branches: [ ibs ]
 
   workflow_dispatch:
       inputs:
