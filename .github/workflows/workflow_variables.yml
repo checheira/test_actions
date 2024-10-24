@@ -1,4 +1,4 @@
-name: Run commands on different operating systems
+name: Github actions con variables
 on: # cuando ejecutar
 
   workflow_dispatch:

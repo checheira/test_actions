@@ -1,4 +1,4 @@
-name: Run commands on different operating systems
+name: Comandos y variables de entorno/repo
 on: # cuando ejecutar
   push:
     branches: [ ibs ]
