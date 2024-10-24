@@ -17,4 +17,4 @@ jobs:
     
     steps: 
       - name: "Primera prueba"
-        run: echo ${{ inputs.Variable1 }}
+        run: echo "${{ inputs.Variable1 }}"
