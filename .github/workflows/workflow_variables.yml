@@ -17,6 +17,4 @@ jobs:
     
     steps: 
       - name: "Primera prueba"
-        env:
-          INPUT_VAR1: ${{ github.event.inputs.Variable1 }}
-        run: echo "$INPUT_VAR1"
+        run: echo ${{ inputs.Variable1 }}
