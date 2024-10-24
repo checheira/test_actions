@@ -1,8 +1,7 @@
 name: Github actions con variables
 on: # cuando ejecutar
 
-  push:
-    branches: [ ibs ]
+
 
   workflow_dispatch:
       inputs:
@@ -10,11 +9,25 @@ on: # cuando ejecutar
           description: 'Descripcion var1'
           required: true
           default: 'valordefault'
+        Variable2:
+            description: 'Descripcion var2'
+            required: true
+            default: 'development'  
+            type: choice
+            options:
+            - development
+            - staging
+            - production    
+
+  # push:
+  #   branches: [ ibs ]
 
 jobs:
   test_job:
     runs-on: ubuntu-latest # utilizar una versión concreta
-    
-    steps: 
-      - name: "Primera prueba"
-        run: echo "${{ inputs.Variable1 }}"
+
+    steps:
+      - name: "Primera variable"
+        run: |
+          echo "${{ github.event.inputs.Variable1 }}"
+          echo "${{ github.event.inputs.Variable2 }}"
