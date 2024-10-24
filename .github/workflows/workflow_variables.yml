@@ -3,7 +3,7 @@ on: # cuando ejecutar
 
   push:
     branches: [ ibs ]
-    
+
   workflow_dispatch:
       inputs:
         Variable1:
@@ -11,13 +11,12 @@ on: # cuando ejecutar
           required: true
           default: 'valordefault'
 
-env:
-    INPUT_VAR1: ${{ github.event.inputs.Variable1 }}
-
 jobs:
   test_job:
     runs-on: ubuntu-latest # utilizar una versión concreta
     
     steps: 
       - name: "Primera prueba"
+        env:
+          INPUT_VAR1: ${{ github.event.inputs.Variable1 }}
         run: echo "$INPUT_VAR1"
