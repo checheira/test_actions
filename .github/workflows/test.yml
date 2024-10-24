@@ -29,7 +29,7 @@ jobs:
           nosec_value: ${{ vars.NO_SEC_VARIABLE }}        
         run: |
           echo "$nosec_value"
-      - name: just know the path #Executing Python Script
+      - name: Get path, files and Ifconfig #Executing Python Script
         shell: bash
         run: | 
           echo "pwd"

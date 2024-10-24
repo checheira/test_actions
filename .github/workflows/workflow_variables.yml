@@ -1,0 +1,20 @@
+name: Run commands on different operating systems
+on: # cuando ejecutar
+
+  workflow_dispatch:
+      inputs:
+        Variable1:
+          description: 'Descripcion var1'
+          required: true
+          default: 'valordefault'
+
+env:
+    INPUT_VAR1: ${{ github.event.inputs.Variable1 }}
+
+jobs:
+  test_job:
+    runs-on: ubuntu-latest # utilizar una versión concreta
+    
+    steps: 
+      - name: "Primera prueba"
+        run: echo "$INPUT_VAR1"
