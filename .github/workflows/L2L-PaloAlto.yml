@@ -41,7 +41,7 @@ jobs:
       - name: install python packages
         shell: bash
         run: |
-          pip3 install -r createAnARecord/requirements.txt
+          pip3 install -r L2L-PaloAlto/requirements.txt
 
       - name: Run python script
         shell: bash
