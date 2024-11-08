@@ -1,0 +1,63 @@
+# A workflow that creates a rule in Palo Alto (se incluirá en el proceso completo de solicitud L2L)
+
+name: L2L - Create rule in PaloAlto
+
+on:
+  workflow_dispatch:
+    inputs:
+    
+      RequestID:
+        description: 'ITNow request ID'
+        type: 'string'
+        required: true
+
+      AddressGroup:
+        description: 'Name of the company or application target'
+        type: 'string'
+        required: true
+      
+      IPAddress:
+        description: 'IP address or network using slash notation (e.g., 192.168.80.150 or 192.168.80.0/24)'
+        type: 'string'
+        required: true
+
+# env: 
+#     AddressGroup: SE_PEER_IPSEC
+#     PaloAltoIP: '172.20.16.37'
+
+jobs:
+  PA_rule:
+
+    runs-on: ["default-nonprod"]
+    steps:
+      - name: checkout actions repository
+        uses: actions/checkout@v4
+
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: install python packages
+        shell: bash
+        run: |
+          pip3 install -r createAnARecord/requirements.txt
+
+      - name: Run python script
+        shell: bash
+        env:
+            AddressGroup: SE_PEER_IPSEC   
+            PaloAltoIP: 'xxx.xxx.xxx.xxx'  
+        run: python3 L2L-PaloAlto/main.py ${{ secrets.PALOALTOCREDENTIALSUSER }} ${{ secrets.PALOALTOCREDENTIALSPASS }} ${{ inputs.RequestID }} ${{ inputs.AddressGroup }} ${{ inputs.IPAddress }} ${{ env.SE_PEER_IPSEC }}
+        # with:
+        #   api-key: ${{ secrets.BC_API_KEY }}
+        #   use_enforcement_rules: true
+
+
+        #Add a Device Group to Panorama
+        #curl -g -k -X GET 'https://172.20.16.37/api/?type=config&action=set&xpath=/config/devices/entry[@name='\''localhost.localdomain'\'']/device-group/entry[@name='\''dg-name'\'']&element=<devices/>&key=api_key'
+
+# Mejoras: 
+    # Se puede añadir una tag para saber como se ha creado.
+    # Control de error porque ya exista previamente
+
