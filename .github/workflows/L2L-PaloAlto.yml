@@ -28,7 +28,7 @@ on:
 jobs:
   PA_rule:
 
-    runs-on: ["default-nonprod"]
+    runs-on: ubuntu-latest
     steps:
       - name: checkout actions repository
         uses: actions/checkout@v4
